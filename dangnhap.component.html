@@ -1,0 +1,57 @@
+<!-- <div>
+    <label for="power">Giới tính</label>
+    <select class="form-control" id="power" required>
+      <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+    </select>
+  </div> -->
+<!-- <div>
+    <label for="name">Tài khoản</label>
+    <input type="text" class="form-control" id="username" required [(ngModel)]="model.username" name="username">
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+      Tài khoản bắt buộc
+    </div>
+  </div>
+  <div><label for="name">Mật khẩu</label>
+    <input type="password" class="form-control" id="password" required [(ngModel)]="model.password" name="password" #name="ngModel">
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+      Mật khẩu bắt buộc
+    </div>
+  </div>
+  <button type="submit" class="btn btn-success" >Đăng nhập</button>
+  <button type="button" class="btn btn-default" (click)="newHero()">New Hero</button> -->
+
+
+
+
+<div class="container">
+  <div [hidden]="submitted">
+    <h3>Đăng nhập</h3>
+    <form (ngSubmit)="onSubmit()" #login="ngForm">
+      <div class="form-group">
+        <label for="name">Tài khoản</label>
+        <input type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name" #name="ngModel">
+        <div [hidden]="name.valid || name.pristine">
+          Tài khoản bắt buộc
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Mật khấu</label>
+        <input type="password" class="form-control" id="password" required [(ngModel)]="model.password" name="password">
+        <div [hidden]="name.valid || name.pristine" >
+          Mật khẩu bắt buộc
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="!login.form.valid">Đăng nhập</button>
+    </form>
+  </div>
+
+  <div [hidden]="!submitted">
+    <h2>Thông tin đăng nhập</h2>
+    <div class="row">
+      <div>Tài khoản: {{ model.name }}</div>
+      <div>Mật khẩu: {{ model.password }}</div>
+    </div>
+    <br>
+    <button class="btn btn-primary" (click)="submitted=false">Chỉnh sửa</button>
+  </div>
+</div>
